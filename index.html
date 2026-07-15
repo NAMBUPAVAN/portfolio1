@@ -1,236 +1,709 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAMBU PAVAN | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nambu Sree Jaya Krishna Siva Sai Bulli Pavan | Python Web Developer</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:#fff;
+}
+
+/* Navigation */
+
+nav{
+    position:fixed;
+    width:100%;
+    background:#0f172acc;
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#38bdf8;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 8%;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero h3{
+    color:#38bdf8;
+    font-size:22px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin:10px 0;
+}
+
+.hero h2{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    line-height:1.8;
+    color:#d1d5db;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    margin-right:15px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.primary{
+    background:#38bdf8;
+    color:white;
+}
+
+.primary:hover{
+    background:#0ea5e9;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:#38bdf8;
+}
+
+.secondary:hover{
+    background:#38bdf8;
+    color:white;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+/* About */
+
+.about{
+    background:#111827;
+    border-radius:15px;
+    padding:40px;
+}
+
+/* Skills */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:#1e293b;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-8px);
+    background:#2563eb;
+}
+
+.skill i{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.social{
+    margin-top:30px;
+}
+
+.social a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:55px;
+    height:55px;
+    margin:10px;
+    border-radius:50%;
+    background:#1e293b;
+    color:white;
+    font-size:24px;
+    transition:.3s;
+}
+
+.social a:hover{
+    background:#38bdf8;
+    transform:scale(1.1);
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#020617;
+    color:#94a3b8;
+}
+
+</style>
+
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <div class="logo">Portfolio.</div>
+<nav>
 
-    <nav>
-        <ul id="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<div class="logo">PAVAN</div>
 
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
-</header>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#internships">Internships</a></li>
+<li><a href="#certifications">Certification</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
 
 <!-- Hero -->
+
 <section class="hero" id="home">
 
-    <div class="hero-text">
-        <h3>Hello, I'm</h3>
-        <h1></h1>NAMBU SREE JAYA KRISHNA SIVA SAI BULLI PAVAN
-        <h2>Python Developer</h2>
+<div class="hero-content">
 
-        <p>
-            I create beautiful, responsive and modern websites with
-            HTML, CSS & JavaScript.
-        </p>
+<h3>Hello, I'm</h3>
 
-        <div class="buttons">
-            <a href="#projects" class="btn">View Projects</a>
-            <a href="#" class="btn-outline">Download CV</a>
-        </div>
+<h1>Nambu Sree Jaya Krishna Siva Sai Bulli Pavan</h1>
 
-        <div class="social">
-           <a href="https://github.com/nambupavan" target="_blank">
-    <i class="fab fa-github"></i>
+<h2>Python Web Developer</h2>
+
+<p>
+I am a passionate Python Web Developer with experience in building
+responsive and user-friendly web applications. I enjoy developing
+modern websites using Django and front-end technologies while writing
+clean, maintainable code.
+</p>
+
+<div class="buttons">
+
+<a href="https://github.com/nambupavan" target="_blank" class="btn primary">
+<i class="fab fa-github"></i> GitHub
 </a>
 
-<a href="https://www.linkedin.com/in/pavan-nambu-95a9b7323" target="_blank">
-    <i class="fab fa-linkedin"></i>
+<a href="https://www.linkedin.com/in/pavan-nambu-95a9b7323" target="_blank" class="btn secondary">
+<i class="fab fa-linkedin"></i> LinkedIn
 </a>
-        </div>
 
-    </div>
+</div>
 
-    <div class="hero-image">
-        <img src="profile.png" alt="Profile">
-    </div>
+</div>
 
 </section>
 
 <!-- About -->
-<section class="about" id="about">
 
-    <div class="title">
-        <h2>About Me</h2>
-    </div>
+<section id="about">
 
-    <div class="about-content">
+<h2 class="title">About Me</h2>
 
-        <img src="profile.png" alt="Profile">
+<div class="about">
 
-        <div>
+<p>
 
-            <h3>Who Am I?</h3>
+My name is <strong>Nambu Sree Jaya Krishna Siva Sai Bulli Pavan</strong>.
 
-            <p>
-                A Python Full Stack Developer with knowledge of both frontend and backend technologies. Experienced in building responsive web applications using HTML, CSS, JavaScript, Bootstrap, Python, Django, and REST APIs. Familiar with database management using MySQL and version control using Git and GitHub. Committed to developing scalable, secure, and user-friendly applications while following industry best practices.
-            </p>
+I specialize in Python web development and enjoy creating secure,
+responsive, and scalable web applications.
 
-            <div class="info">
+I continuously improve my skills by working on real-world projects,
+exploring new technologies, and contributing to GitHub.
 
-                <div>
-                    <strong>Name</strong>
-                    <span>NAMBU SREE JAYA KRISHNA SIVA SAI BULLI PAVAN</span>
-                </div>
+</p>
 
-                <div>
-                    <strong>Email</strong>
-                    <span>pavan.nambu@gmail.com</span>
-                </div>
-
-                <div>
-                    <strong>Location</strong>
-                    <span>India</span>
-                </div>
-
-                <div>
-                    <strong>Experience</strong>
-                    <span>Fresher</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <!-- Skills -->
-<section class="skills" id="skills">
 
-    <div class="title">
-        <h2>My Skills</h2>
-    </div>
+<section id="skills">
 
-    <div class="skill-grid">
+<h2 class="title">Technical Skills</h2>
 
-        <div class="skill-card">
-            <i class="fab fa-html5"></i>
-            <h3>HTML</h3>
+<div class="skills">
+
+<div class="skill">
+<i class="fab fa-python"></i>
+<h3>Python</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-java"></i>
+<h3>Core Java</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-html5"></i>
+<h3>HTML5</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-css3-alt"></i>
+<h3>CSS3</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-js"></i>
+<h3>JavaScript</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-git-alt"></i>
+<h3>Git</h3>
+</div>
+
+<div class="skill">
+<i class="fab fa-github"></i>
+<h3>GitHub</h3>
+</div>
+
+<div class="skill">
+<i class="fas fa-server"></i>
+<h3>Django</h3>
+</div>
+
+</div>
+
+</section>
+<!-- --Projects-- -->
+<!-- ================= Projects Section ================= -->
+
+<<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+
+        <!-- ================= Digital Clock ================= -->
+
+        <div class="project-card">
+
+            <div class="project-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+
+            <div class="project-content">
+
+                <h3>Digital Clock</h3>
+
+                <p>
+                    A responsive digital clock that displays the current time in real time using JavaScript.
+                    Designed with a modern interface and optimized for desktop and mobile devices.
+                </p>
+
+                <div class="project-tech">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-check-circle"></i> Real-Time Clock</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Design</li>
+                    <li><i class="fas fa-check-circle"></i> Modern UI</li>
+                    <li><i class="fas fa-check-circle"></i> Lightweight</li>
+                </ul>
+
+                <div class="project-buttons">
+
+                    <a href="https://nambupavan.github.io/Digital-Clock/" target="_blank" class="btn live-btn">
+                        <i class="fas fa-eye"></i> Live Demo
+                    </a>
+
+                    <a href="https://github.com/NambuPavan/Digital-Clock" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="skill-card">
-            <i class="fab fa-css3-alt"></i>
-            <h3>CSS</h3>
-        </div>
+        <!-- ================= To-Do List ================= -->
 
-        <div class="skill-card">
-            <i class="fab fa-js"></i>
-            <h3>JavaScript</h3>
-        </div>
+        <div class="project-card">
 
-        <div class="skill-card">
-            <i class="fab fa-react"></i>
-            <h3>Python</h3>
-        </div>
+            <div class="project-icon">
+                <i class="fas fa-list-check"></i>
+            </div>
 
-        <div class="skill-card">
-            <i class="fab fa-node-js"></i>
-            <h3>Java</h3>
-        </div>
+            <div class="project-content">
 
-        <div class="skill-card">
-            <i class="fab fa-github"></i>
-            <h3>GitHub</h3>
+
+                <h3>To-Do List Application</h3>
+
+                <p>
+                    A task management web application that allows users to create, edit,
+                    delete, and manage daily tasks. All tasks are stored using Local Storage
+                    to preserve data across browser sessions.
+                </p>
+
+                <div class="project-tech">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>Local Storage</span>
+                </div>
+
+                <ul class="project-features">
+                    <li><i class="fas fa-check-circle"></i> Add Tasks</li>
+                    <li><i class="fas fa-check-circle"></i> Edit & Delete</li>
+                    <li><i class="fas fa-check-circle"></i> Local Storage</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile Friendly</li>
+                </ul>
+
+                <div class="project-buttons">
+
+                    <a href="https://nambupavan.github.io/To-Do-List/" target="_blank" class="btn live-btn">
+                        <i class="fas fa-eye"></i> Live Demo
+                    </a>
+
+                    <a href="https://github.com/NambuPavan/To-Do-List" target="_blank" class="btn github-btn">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
+<!-- ===================== INTERNSHIPS ===================== -->
 
-<!-- Projects -->
-<section class="projects" id="projects">
+<section id="internships">
 
-    <div class="title">
-        <h2>Latest Projects</h2>
+<h2 class="title">Internships</h2>
+
+<div class="skills">
+
+    <!-- Python Full Stack Internship -->
+
+    <div class="skill">
+
+        <i class="fas fa-laptop-code"></i>
+
+        <h3>Python Full Stack Developer Intern</h3>
+
+        <h4>Internship Program</h4>
+
+        <p>
+            Successfully completed a Python Full Stack Development internship
+            where I developed responsive web applications using Python, Django,
+            HTML5, CSS3, JavaScript, and SQL. Worked on both front-end and
+            back-end development while following modern web development
+            practices.
+        </p>
+
+        <br>
+
+        <p><strong>Key Skills:</strong></p>
+
+        <p>
+            ✔ Python<br>
+            ✔ Django Framework<br>
+            ✔ HTML5 & CSS3<br>
+            ✔ JavaScript<br>
+            ✔ SQL Database<br>
+            ✔ Git & GitHub
+        </p>
+    <a href="https://drive.google.com/file/d/1p2mgAlw6s8TTupnrnzfKD-KRkwgXg4Ws/view?usp=drivesdk"
+       target="_blank"
+       class="certificate-btn">
+       <i class="fas fa-certificate"></i> View Certificate
+    </a>
+
     </div>
-            <div class="content">
-                <h3>Portfolio Website</h3>
 
-                <p>
-                    Premium animated portfolio with modern UI.
-                </p>
+    <!-- SQL Internship -->
 
-                <a href="#">View Project</a>
+    <div class="skill">
 
-            </div>
+        <i class="fas fa-database"></i>
+
+        <h3>SQL & Database Management Systems Intern</h3>
+
+        <h4>Internship Program</h4>
+
+        <p>
+            Completed an internship focused on SQL and Database Management
+            Systems. Gained hands-on experience in designing relational
+            databases, writing SQL queries, creating tables, joins,
+            normalization, indexing, views, stored procedures, and database
+            optimization.
+        </p>
+
+        <br>
+
+        <p><strong>Key Skills:</strong></p>
+
+        <p>
+            ✔ SQL Queries<br>
+            ✔ MySQL<br>
+            ✔ Database Design<br>
+            ✔ Normalization<br>
+            ✔ Joins & Subqueries<br>
+            ✔ Database Optimization
+        </p>
+    <a href="https://drive.google.com/file/d/1VYxKyVEi_O3n37lqFBVa7Gny-H4A4j6h/view?usp=drivesdk"
+       target="_blank"
+       class="certificate-btn">
+       <i class="fas fa-certificate"></i> View Certificate
+    </a>
 
     </div>
+
+</div>
+
+</section>
+
+<!-- ===================== CERTIFICATIONS ===================== -->
+
+<section id="certifications">
+
+<h2 class="title">Certifications</h2>
+
+<div class="skills">
+
+    <!-- Red Hat Python -->
+
+    <div class="skill">
+
+        <i class="fab fa-python"></i>
+
+        <h3>Red Hat Certified – Python Programming</h3>
+
+        <p>
+            Successfully completed the Red Hat Python Programming certification,
+            gaining practical knowledge in Python fundamentals, object-oriented
+            programming, file handling, modules, exception handling, and scripting.
+        </p>
+
+        <br>
+
+        <a href="https://drive.google.com/file/d/1bsReeSJ6wVmYRgLJU6x9E6gK0Hh-9A-N/view?usp=drivesdk"
+           target="_blank"
+           class="btn primary">
+            <i class="fas fa-eye"></i> View Certificate
+        </a>
+
+    </div>
+
+    <!-- Red Hat Java -->
+
+    <div class="skill">
+
+        <i class="fab fa-java"></i>
+
+        <h3>Red Hat Certified – Java Programming</h3>
+
+        <p>
+            Completed the Red Hat Java Programming certification covering Core Java,
+            OOP concepts, collections, exception handling, multithreading,
+            file handling, and Java application development.
+        </p>
+
+        <br>
+
+        <a href="https://drive.google.com/file/d/1fMd0TMY-sEn0bF06lm3kjjtdSJTbCkXf/view?usp=drivesdk"
+           target="_blank"
+           class="btn primary">
+            <i class="fas fa-eye"></i> View Certificate
+        </a>
+
+    </div>
+
+    <!-- NPTEL IoT -->
+
+    <div class="skill">
+
+        <i class="fas fa-microchip"></i>
+
+        <h3>NPTEL – Internet of Things (IoT)</h3>
+
+        <p>
+            Successfully completed the NPTEL Internet of Things certification,
+            learning IoT architecture, sensors, communication protocols,
+            cloud integration, and smart device applications.
+        </p>
+
+        <br>
+
+        <a href="https://drive.google.com/file/d/1-c-qCIPzZjnwBWgi5rInfcdZTeWKnaq6/view?usp=drivesdk"
+           target="_blank"
+           class="btn primary">
+            <i class="fas fa-eye"></i> View Certificate
+        </a>
+
+    </div>
+
+    <!-- Cisco Data Analytics -->
+
+    <div class="skill">
+
+        <i class="fas fa-chart-line"></i>
+
+        <h3>Cisco – Data Analytics</h3>
+
+        <p>
+            Completed the Cisco Data Analytics certification covering data
+            visualization, data cleaning, analytics fundamentals,
+            dashboards, and business insights using analytical tools.
+        </p>
+
+        <br>
+
+        <a href="https://drive.google.com/file/d/1PcWM8Zlky4yS8AyrvgWOvbmjNi7Jcf83/view?usp=drivesdk"
+           target="_blank"
+           class="btn primary">
+            <i class="fas fa-eye"></i> View Certificate
+        </a>
+
+    </div>
+
+</div>
 
 </section>
 
 <!-- Contact -->
-<section class="contact" id="contact">
 
-    <div class="title">
-        <h2>Contact Me</h2>
-    </div>
+<section id="contact">
 
-    <form>
+<h2 class="title">Connect With Me</h2>
 
-        <input type="text" placeholder="NAMBU SREE JAYA KRISHNA SIVA SAI BULLI PAVAN" required>
+<div class="contact">
 
-        <input type="email" placeholder="pavan.nambu@gmail.com" required>
+<div class="social">
 
-        <button type="submit">
-            Send Message
-        </button>
+<a href="https://github.com/nambupavan" target="_blank">
+<i class="fab fa-github"></i>
+</a>
 
-    </form>
+<a href="https://www.linkedin.com/in/pavan-nambu-95a9b7323" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+
+<p>
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:pavan.nambu@gmail.com">
+        pavan.nambu@gmail.com
+    </a>
+</p>
+
+</div>
+
+<br>
+
+<a href="https://github.com/nambupavan" class="btn primary" target="_blank">
+Visit GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/pavan-nambu-95a9b7323" class="btn secondary" target="_blank">
+Visit LinkedIn
+</a>
+
+<p>
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:pavan.nambu@gmail.com">
+        pavan.nambu@gmail.com
+    </a>
+</p>
+
+</div>
 
 </section>
 
-<!-- Footer -->
 <footer>
 
-    <h3>NAMBU SREE JAYA KRISHNA SIVA SAI BULLI PAVAN</h3>
-
-    <p>
-        © 2026 All Rights Reserved.
-    </p>
-
-    <div class="footer-social">
-
-        <a href="#"><i class="fab fa-github"></i></a>
-
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-
-    </div>
+© 2026 Nambu Sree Jaya Krishna Siva Sai Bulli Pavan | Python Web Developer
 
 </footer>
-
-<!-- Back to Top -->
-<button id="topBtn">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-<!-- JS -->
-<script src="script.js"></script>
 
 </body>
 </html>
