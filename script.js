@@ -1,80 +1,33 @@
-// ===============================
-// Premium Portfolio JavaScript
-// ===============================
+/* ===========================
+   SMOOTH SCROLL
+=========================== */
 
-// Mobile Menu
-const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector("#menu");
+const navLinks = document.querySelectorAll("nav ul li a");
 
-menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("show");
-});
+navLinks.forEach(link => {
 
-// Close menu after clicking a link
-document.querySelectorAll("#menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        menu.classList.remove("show");
-    });
-});
-
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
+    link.addEventListener("click", function(e) {
 
         e.preventDefault();
 
         const target = document.querySelector(this.getAttribute("href"));
 
-        if(target){
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+        target.scrollIntoView({
+
+            behavior: "smooth"
+
+        });
 
     });
-});
-
-// Header Background on Scroll
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 80){
-        header.style.background = "#0f172a";
-        header.style.boxShadow = "0 10px 20px rgba(0,0,0,.3)";
-    }
-    else{
-        header.style.background = "rgba(15,23,42,.9)";
-        header.style.boxShadow = "none";
-    }
 
 });
 
-// Back To Top Button
-const topBtn = document.getElementById("topBtn");
 
-window.addEventListener("scroll", () => {
+/* ===========================
+   ACTIVE NAVBAR
+=========================== */
 
-    if(window.scrollY > 400){
-        topBtn.style.display = "block";
-    }else{
-        topBtn.style.display = "none";
-    }
-
-});
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-});
-
-// Active Navigation
 const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll", () => {
 
@@ -82,10 +35,15 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 120;
 
-        if(window.scrollY >= sectionTop){
+        const sectionHeight = section.clientHeight;
+
+        if (window.pageYOffset >= sectionTop &&
+            window.pageYOffset < sectionTop + sectionHeight) {
+
             current = section.getAttribute("id");
+
         }
 
     });
@@ -94,110 +52,397 @@ window.addEventListener("scroll", () => {
 
         link.classList.remove("active");
 
-        if(link.getAttribute("href") === "#" + current){
+        if (link.getAttribute("href") === "#" + current) {
+
             link.classList.add("active");
+
         }
 
     });
 
 });
 
-// Reveal Animation
-const revealElements = document.querySelectorAll(
-".hero,.about,.skills,.projects,.contact,.skill-card,.project-card"
-);
 
-function reveal(){
+/* ===========================
+   NAVBAR SHADOW
+=========================== */
 
-    revealElements.forEach(el=>{
+const navbar = document.querySelector("nav");
 
-        const top = el.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+window.addEventListener("scroll", () => {
 
-        if(top < windowHeight - 100){
-            el.classList.add("visible");
+    if (window.scrollY > 60) {
+
+        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+        navbar.style.background = "rgba(15,23,42,.98)";
+
+    } else {
+
+        navbar.style.boxShadow = "none";
+        navbar.style.background = "rgba(15,23,42,.90)";
+
+    }
+
+});
+
+
+/* ===========================
+   TYPING EFFECT
+=========================== */
+
+const typingElement = document.querySelector(".hero h2");
+
+const words = [
+
+    "Python Web Developer",
+
+    "Frontend Developer",
+
+    "Django Developer",
+
+    "Web Designer"
+
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typingEffect() {
+
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex++);
+
+        if (charIndex > currentWord.length) {
+
+            deleting = true;
+
+            setTimeout(typingEffect, 1200);
+
+            return;
+
         }
 
-    });
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex--);
+
+        if (charIndex < 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+            if (wordIndex >= words.length) {
+
+                wordIndex = 0;
+
+            }
+
+        }
+
+    }
+
+    setTimeout(typingEffect, deleting ? 60 : 120);
 
 }
 
-window.addEventListener("scroll", reveal);
-reveal();
+typingEffect();
 
-// Contact Form
-const form = document.querySelector("form");
 
-form.addEventListener("submit",(e)=>{
+/* ===========================
+   HERO FADE ANIMATION
+=========================== */
 
-    e.preventDefault();
+window.addEventListener("load", () => {
 
-    alert("✅ Thank you! Your message has been received.");
+    const hero = document.querySelector(".hero-content");
 
-    form.reset();
+    hero.style.opacity = "0";
 
-});
+    hero.style.transform = "translateY(40px)";
 
-// Hero Typing Animation
-const roles = [
-    "Frontend Developer",
-    "Web Designer",
-    "JavaScript Developer",
-    "UI Designer"
-];
+    setTimeout(() => {
 
-const roleElement = document.querySelector(".hero h2");
+        hero.style.transition = "1s";
 
-let roleIndex = 0;
+        hero.style.opacity = "1";
 
-setInterval(()=>{
+        hero.style.transform = "translateY(0px)";
 
-    roleIndex++;
-
-    if(roleIndex >= roles.length){
-        roleIndex = 0;
-    }
-
-    roleElement.textContent = roles[roleIndex];
-
-},2500);
-
-// Skill Card Hover Effect
-document.querySelectorAll(".skill-card").forEach(card=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.background =
-        `radial-gradient(circle at ${x}px ${y}px,#38bdf8,#1e293b)`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.background="#1e293b";
-
-    });
+    }, 300);
 
 });
 
-// Footer Year
-const footer = document.querySelector("footer p");
+
+/* ===========================
+   UPDATE FOOTER YEAR
+=========================== */
+
+const footer = document.querySelector("footer");
+
+const year = new Date().getFullYear();
 
 footer.innerHTML =
-`© ${new Date().getFullYear()} All Rights Reserved.`;
+`© ${year} Nambu Sree Jaya Krishna Siva Sai Bulli Pavan | Python Web Developer`;
 
-// Page Loader
-window.addEventListener("load",()=>{
+/* ===========================
+   SCROLL REVEAL ANIMATION
+=========================== */
 
-    document.body.style.opacity="1";
+const revealElements = document.querySelectorAll(
+".about, .skill, .project-card, .contact, .project-content");
+
+const revealObserver = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}else{
+
+entry.target.classList.remove("show");
+
+}
 
 });
 
-// Initial Style
+},{
+threshold:0.15
+});
+
+revealElements.forEach(el=>{
+
+el.classList.add("hidden");
+
+revealObserver.observe(el);
+
+});
+
+
+/* ===========================
+   SCROLL TO TOP BUTTON
+=========================== */
+
+const topBtn=document.createElement("button");
+
+topBtn.className="top-btn";
+
+topBtn.innerHTML='<i class="fas fa-arrow-up"></i>';
+
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>400){
+
+topBtn.style.display="flex";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+
+/* ===========================
+   SCROLL PROGRESS BAR
+=========================== */
+
+const progress=document.createElement("div");
+
+progress.className="progress-bar";
+
+document.body.appendChild(progress);
+
+window.addEventListener("scroll",()=>{
+
+const totalHeight=document.documentElement.scrollHeight-window.innerHeight;
+
+const progressHeight=(window.pageYOffset/totalHeight)*100;
+
+progress.style.width=progressHeight+"%";
+
+});
+
+
+/* ===========================
+   BUTTON RIPPLE EFFECT
+=========================== */
+
+document.querySelectorAll(".btn").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=document.createElement("span");
+
+const rect=this.getBoundingClientRect();
+
+const size=Math.max(rect.width,rect.height);
+
+ripple.style.width=size+"px";
+ripple.style.height=size+"px";
+
+ripple.style.left=e.clientX-rect.left-size/2+"px";
+ripple.style.top=e.clientY-rect.top-size/2+"px";
+
+ripple.classList.add("ripple");
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+
+
+/* ===========================
+   PROJECT CARD HOVER EFFECT
+=========================== */
+
+document.querySelectorAll(".project-card").forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-12px) scale(1.02)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0px) scale(1)";
+
+});
+
+});
+
+
+/* ===========================
+   SKILL CARD ANIMATION
+=========================== */
+
+document.querySelectorAll(".skill").forEach(skill=>{
+
+skill.addEventListener("mouseenter",()=>{
+
+skill.style.transform="translateY(-10px)";
+
+});
+
+skill.addEventListener("mouseleave",()=>{
+
+skill.style.transform="translateY(0px)";
+
+});
+
+});
+
+
+/* ===========================
+   IMAGE HOVER EFFECT
+=========================== */
+
+document.querySelectorAll(".project-card img").forEach(img=>{
+
+img.addEventListener("mouseenter",()=>{
+
+img.style.transform="scale(1.08)";
+
+});
+
+img.addEventListener("mouseleave",()=>{
+
+img.style.transform="scale(1)";
+
+});
+
+});
+
+
+/* ===========================
+   PAGE LOADER
+=========================== */
+
+window.addEventListener("load",()=>{
+
 document.body.style.opacity="0";
-document.body.style.transition="opacity .6s";
+
+setTimeout(()=>{
+
+document.body.style.transition="opacity .8s";
+
+document.body.style.opacity="1";
+
+},100);
+
+});
+
+
+/* ===========================
+   SOCIAL ICON ANIMATION
+=========================== */
+
+document.querySelectorAll(".social a").forEach(icon=>{
+
+icon.addEventListener("mouseenter",()=>{
+
+icon.style.transform="translateY(-8px) rotate(360deg)";
+
+});
+
+icon.addEventListener("mouseleave",()=>{
+
+icon.style.transform="translateY(0) rotate(0deg)";
+
+});
+
+});
+
+
+/* ===========================
+   PARALLAX EFFECT
+=========================== */
+
+window.addEventListener("scroll",()=>{
+
+const hero=document.querySelector(".hero");
+
+hero.style.backgroundPositionY=window.pageYOffset*0.4+"px";
+
+});
+
+
+/* ===========================
+   CONSOLE MESSAGE
+=========================== */
+
+console.log(
+"%cWelcome to Pavan's Portfolio!",
+"color:#38bdf8;font-size:22px;font-weight:bold;"
+);
